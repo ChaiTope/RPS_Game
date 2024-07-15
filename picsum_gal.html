@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>픽숨갤러리</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container{
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #galleryZone{
+            width: 600px;
+            height: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+        }
+        .btn-box{
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+        }
+        .btn-box button{
+            padding: 5px 20px;
+            font-size: 18px;
+        }
+        .next{
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <h1>픽숨갤러리</h1>
+    <div class="container">
+        <div id="galleryZone">
+            <img src="https://picsum.photos/id/237/600/400" alt="237" id="imgGal">
+        </div>
+        <div class="btn-box">
+            <button type="button" onclick="myGall(-1)">이전</button>
+            <button type="button" class="next" onclick="myGall(1)">다음</button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        var ct = 100;
+        function myGall(num){
+            let img;
+            if(num > 0){//다음
+                
+                ct++;
+                if(ct > 110){
+                    ct = 100;
+                }
+
+                if(ct == 105){
+                    ct = 106;
+                }
+                
+            }
+            else{//이전
+                
+                ct--;
+                if(ct < 100){
+                    ct = 110;
+                }
+
+                if(ct == 105){
+                    ct = 104;
+                }
+                
+            }
+            // img = `<img src="https://picsum.photos/id/${ct}/600/400" alt="237">`;
+            // document.getElementById("galleryZone").innerHTML = img;
+            document.getElementById("imgGal").setAttribute("src", `https://picsum.photos/id/${ct}/600/400`);
+        }
+
+    </script>
+</body>
+</html>

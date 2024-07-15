@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이키 신발</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container{
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #galleryZone{
+            width: 594px;
+            height: 594px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+        }
+        .btn-box{
+            width: 594px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+        }
+        .btn-box button{
+            padding: 5px 20px;
+            font-size: 18px;
+        }
+        .next{
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <h1>나이키 신발</h1>
+    <div class="container">
+        <div id="galleryZone">
+            <img src="../image/source1.jpg" alt="shoes1" id="imgGal">
+        </div>
+        <div class="btn-box">
+            <button type="button" onclick="myGall(-1)">PREV</button>
+            <button type="button" class="next" onclick="myGall(1)">NEXT</button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        var ct = 1;
+        function myGall(num){
+            let img;
+            if(num > 0){//다음
+                
+                ct++;
+                if(ct > 5){
+                    ct = 1;
+                }
+                
+            }
+            else{//이전
+                
+                ct--;
+                if(ct < 1){
+                    ct = 5;
+                }
+                
+            }
+            // img = `<img src="https://picsum.photos/id/${ct}/600/400" alt="237">`;
+            // document.getElementById("galleryZone").innerHTML = img;
+            document.getElementById("imgGal").setAttribute("src", `../image/source${ct}.jpg`);
+        }
+
+    </script>
+</body>
+</html>
